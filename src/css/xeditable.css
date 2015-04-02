@@ -40,6 +40,10 @@
   width: auto;
 }
 
+.input-group .editable-input.editable-has-buttons {
+  width: 100%;
+}
+
 /* ==== editable-bstime ==== */
 
 /* workaround for bootstrap that sets width: 100% and inputs become too wide */
