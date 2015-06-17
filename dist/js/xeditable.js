@@ -1,7 +1,7 @@
 /*!
 angular-xeditable - 0.1.9
 Edit-in-place for angular.js
-Build date: 2015-04-02 
+Build date: 2015-06-02 
 */
 /**
  * Angular-xeditable module 
@@ -560,11 +560,11 @@ angular.module('xeditable').factory('editableController',
 
       //build error
       self.errorEl = angular.element(theme.errorTpl);
+      self.controlsEl.append(self.errorEl);
 
       //build editor
       self.editorEl = angular.element(self.single ? theme.formTpl : theme.noformTpl);
       self.editorEl.append(self.controlsEl);
-      self.editorEl.append(self.errorEl);
 
       // transfer `e-*|data-e-*|x-e-*` attributes
       for(var k in $attrs.$attr) {
@@ -857,7 +857,7 @@ function($parse, $compile, editableThemes, $rootScope, $document, editableContro
         // element wrapped by form
         if(ctrl[1]) {
           eFormCtrl = ctrl[1];
-          hasForm = true;
+          hasForm = attrs.eSingle === undefined;
         } else if(attrs.eForm) { // element not wrapped by <form>, but we hane `e-form` attr
           var getter = $parse(attrs.eForm)(scope);
           if(getter) { // form exists in scope (above), e.g. editable column
