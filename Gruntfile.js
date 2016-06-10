@@ -12,6 +12,9 @@ module.exports = function(grunt) {
   //clean
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.config('clean', {
+    options: {
+      force: true
+    },
     dist: 'dist',
     starter: 'starter/angular-xeditable'
   });
